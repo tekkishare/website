@@ -1,0 +1,130 @@
+[
+  {
+    "title": "EXPOSING DIGITAL CONTENT – SITECORE ODATA ITEM SERVICE",
+    "url": "/pages/odata-item-service",
+    "shortDescription": "In today’s world sharing digital content across various channel is very common.  People create content at a central place and share the same content across various channel/platform sometime various app/mobile app as well.",
+    "tag": "Sitecore;OData",
+    "date": "7/4/2020",
+    "isActive": true
+  },
+  {
+    "title": "MANUAL REBUILD INDEX - TRACK START & COMPLETED",
+    "url": "/pages/manual-rebuild-index",
+    "shortDescription": "Recently we came into a requirement where we need to send email whenever sitecore user trigger rebuild index manually. We also need to send email once that index gets completed. Sitecore does not provide any event for rebuild index like publishing. We have Publish:end and Publish:end:remote event for publishing but don't have similar event for.",
+    "tag": "Sitecore;solr",
+    "date": "11/17/2019",
+    "isActive": true
+  },
+  {
+    "title": "FAILED TO START THE MARKETING AUTOMATION ENGINE SERVICE",
+    "url": "/pages/failed-to-start-marketing-automation-service",
+    "shortDescription": "From last few days, my analytics tracker was not working. So I thought to fix this issue today.When I start Sitecore Marketing Automation Engine – .MarketingAutomationService.",
+    "tag": "Sitecore;solr;Sitecore-Marketing",
+    "date": "06/01/2020",
+    "isActive": true
+  },
+  {
+    "title": "SWITCH SOLR INDEX",
+    "url": "/pages/switch-solr-index",
+    "shortDescription": "Rebuilding of index is a very common scenario if your website is built on Sitecore. During the maintenance of the websites, you come in the situation when you have to rebuild your indexes. Here the question is, what is the problem in triggering index rebuild event?",
+    "tag": "Sitecore;solr",
+    "date": "05/13/2019",
+    "isActive": true
+  },
+  {
+    "title": "CHANGE DATABASES PASSWORD – SITECORE 9.X",
+    "url": "/pages/change-database-password",
+    "shortDescription": "In the software development lifecycle you have to change database password sometimes. Especially if you are working on a new website or redesigning an existing websites and planning to go live. So before going live ideally we should change the existing databases password.",
+    "tag": "Sitecore",
+    "date": "05/21/2019",
+    "isActive": true
+  },
+  {
+    "title": "UNABLE TO CONNECT TO SITECORE_SXA_MASTER_INDEX, SITECORE_SXA_WEB_INDEX",
+    "url": "/pages/unable-to-connect-sitecore-sxa-master-index",
+    "shortDescription": "When I installed Sitecore 9.0.2 and Sitecore Commerce 9.0.2, I am getting below errors in the log files: ERROR Unable to connect to [https://localhost:8983/solr], Core: [sitecore_sxa_master_index] ERROR Unable to connect to [https://localhost:8983/solr], Core: [sitecore_sxa_web_index] The above issue is not related to the Sitecore Commerce but it is related to Sitecore 9.0.2 and Sitecore SXA.",
+    "tag": "Sitecore;Sitecore-index;solr",
+    "date": "12/31/2018",
+    "isActive": true
+  },
+  {
+    "title": "CREATING A CLEAN SOLUTION FOR SITECORE COMMERCE",
+    "url": "/pages/creating-a-clean-solution-for-sitecore-commerce",
+    "shortDescription": "Sitecore Commerce solution is not similar to regular Sitecore solution. Even Sitecore Commerce installation package provide us a sample Sitecore Commerce solution as well. But it contains multiple sample project as well. Usually, people don’t remove the existing sample project and start developing Sitecore Commerce component on top of that sample solution.",
+    "tag": "Sitecore;Sitecore-Commerce",
+    "date": "12/31/2018",
+    "isActive": true
+  },
+  {
+    "title": "CHANGE DEFAULT PASSWORD – SITECORE COMMERCE",
+    "url": "/pages/change-default-password-sitecore-commerce",
+    "shortDescription": "Changing the default password of Sitecore Commerce (XC) is not as simple as in Sitecore. When we install Sitecore Commerce 9.0 onwards, it creates 8 web applications in your IIS. You can find default password at multiple places in the commerce application’s configuration files.",
+    "tag": "Sitecore;Sitecore-Commerce",
+    "date": "12/31/2018",
+    "isActive": true
+  },
+  {
+    "title": "SEO FRIENDLY URL",
+    "url": "/pages/seo-friendly-url",
+    "shortDescription": "Today I would like to discuss regarding SEO Friendly URL issue then will discuss the resolutions. Every project has to work on SEO (Search Engine Optimization). Particularly I would like to tell you about the URL. As per SEO recommendation, our URL should be in small letters and it should not have space in URLs.",
+    "tag": "Sitecore;Sitecore-Commerce",
+    "date": "07/29/2018",
+    "isActive": true
+  },
+  {
+    "title": "UNICORN SYNC – PRODUCTION ENVIRONMENT",
+    "url": "/pages/unicorn-sync-production-environment",
+    "shortDescription": "Suppose you are using Unicorn for Sitecore item serialization. You have deployed your code and Sitecore items on staging/Production environment and released it to client/content author for content entry.",
+    "tag": "Sitecore;Unicorn",
+    "date": "05/08/2018",
+    "isActive": true
+  },
+  {
+    "title": "INSTALLING – SITECORE 9.0 UPDATE 1",
+    "url": "/pages/installing-sitecore90-update-1",
+    "shortDescription": "Suppose you are using Unicorn for Sitecore item serialization. You have deployed your code and Sitecore items on staging/Production environment and released it to client/content author for content entry.",
+    "tag": "Sitecore",
+    "date": "05/08/2018",
+    "isActive": true
+  },
+  {
+    "title": "XCONNECT - CREATE CUSTOM FACET",
+    "url": "/pages/xconnect-create-custom-facet",
+    "shortDescription": "A facet is part of information that a contact or interaction can have. Sitecore xDB provide lots of out of the box facet that can be used to store user information inside the xDB database. For example: PersonalInformaiton, EmailAddress, ProfileScores, EngagementMeasures.",
+    "tag": "xConnect",
+    "date": "02/11/2018",
+    "isActive": true
+  },
+  {
+    "title": "FULL PUBLISH – SITECORE PUBLISHING",
+    "url": "/pages/full-publish-sitecore-publishing",
+    "shortDescription": "Content authors update content regularly to make their site up to date. Once the changes completed, they must have to publish the content to push the latest changes on production or live website.",
+    "tag": "Sitecore Publishing",
+    "date": "02/11/2018",
+    "isActive": true
+  },
+  {
+    "title": "SITECORE FORM - 9",
+    "url": "/pages/sitecore-form-9",
+    "shortDescription": "Before Sitecore 9.0, Web Form Marketers (WFFM) was being used to full fill the web form requirement in Sitecore. But in Sitecore 9, we don’t need Web Form Marketers any more. Sitecore providing Form out of the box with Sitecore 9.0 installation.",
+    "tag": "Sitecore-Form",
+    "date": "02/05/2018",
+    "isActive": true
+  },
+  {
+    "title": "XCONNECT – SAVING USER PROFILE INFORMATION USING XCONNECT",
+    "url": "/pages/xconnect-saving-user-profile-information-using-xconnect",
+    "shortDescription": "One of the main changes from Sitecore 8.0 to 9.0 is, Sitecore changed xDB related API to the service based API. When you install Sitecore 9.0 or Sitecore 9 – Update 1, it creates two websites in your machine. One for your regular CMS and another is for hosting service, that can be used to perform xDB related activity.",
+    "tag": "Sitecore;xConnect",
+    "date": "02/02/2018",
+    "isActive": true
+  },
+  {
+    "title": "WILDCARD ITEM IN SITECORE",
+    "url": "/pages/wildcard-item-in-sitecore-dynamic-urls-handler",
+    "shortDescription": "For handling dynamic URLs, you can use wildcard item in the Sitecore. Only difference with the regular Sitecore item is, the name of the item is wildcard (*) character. Display name of that item can be anything.",
+    "tag": "Sitecore",
+    "date": "02/02/2018",
+    "isActive": true
+  }
+]

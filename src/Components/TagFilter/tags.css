@@ -1,0 +1,56 @@
+.tagContainer div {
+  background-color: #282c34;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+.tagContainer .empty {
+  height: 2px;
+  background-color: whitesmoke;
+}
+.tagContainer span {
+  padding: 8px;
+  text-align: center;
+  font-size: large;
+  background-color: #e45036;
+  text-decoration: none;
+  color: whitesmoke;
+  display: inline-block;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.tagContainer a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+.tagContainer a:hover {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.tagTeaser {
+  padding: 10px;
+}
+
+.tagTeaser .tagTitle a {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+  background-color: orange;
+  color: #282c34;
+  word-wrap: break-word;
+}
+.tagTeaser .tagShortDescription {
+  text-align: left;
+  font-size: medium;
+  color: black;
+  padding: 10px;
+  background-color: rgb(230, 227, 227);
+  word-wrap: break-word;
+}

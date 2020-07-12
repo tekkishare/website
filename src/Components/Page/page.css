@@ -1,0 +1,113 @@
+.pageHeader {
+  font-size: 4.44em;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #282c34;
+  color: whitesmoke;
+  padding-left: 200px;
+  padding-right: 200px;
+  text-align: center;
+}
+.pageEmptyRow {
+  height: 50px;
+}
+.pageTop {
+  background-color: whitesmoke;
+}
+
+.pageTop label {
+  font-size: xxx-large;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.pageContentParagraph {
+  font-size: x-large;
+  line-height: 35px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.pageContentParagraph a {
+  text-decoration: none;
+  word-wrap: break-word;
+  color: #e45036;
+}
+.pageContentImage {
+  text-align: center;
+}
+
+.pageContentParagraph p {
+  font-size: x-large;
+  line-height: 35px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+}
+.pageCodeParagraph {
+  font-size: x-large;
+  line-height: 35px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+}
+.pageCodeParagraph li {
+  list-style: none;
+  font-size: medium;
+  word-wrap: break-word;
+  color: blue;
+}
+.tab {
+  padding-left: 30px;
+}
+.comment {
+  color: green !important;
+}
+.pageContentParagraphBold {
+  font-size: x-large;
+  font-weight: bold;
+  line-height: 35px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+}
+.pageContentParagraphBoldHeading {
+  font-size: xx-large;
+  font-weight: bold;
+  line-height: 50px;
+  padding-bottom: 10px;
+  color: darkblue;
+}
+
+.pageContentParagraphItalic {
+  font-size: x-large;
+  font-style: italic;
+  line-height: 35px;
+  padding-bottom: 10px;
+}
+.pageContentImage {
+  width: 100%;
+}
+
+.pageContentImageNoChange {
+}
+
+@media screen and (max-width: 480px) {
+  img.pageContentImage {
+    width: 400px;
+  }
+  img.pageContentImageNoChange {
+    width: 330px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.pageHeader {
+    font-size: 4.44em;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #282c34;
+    color: whitesmoke;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+}

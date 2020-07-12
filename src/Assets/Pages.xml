@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages>
+  <page>
+    <title><![CDATA[MANUAL REBUILD INDEX – TRACK START & COMPLETED]]></title>
+    <url><![CDATA[/manual-rebuild-index]]></url>
+    <shortDescription>
+      <![CDATA[
+        Recently we came into a requirement where we need to send email whenever sitecore user trigger rebuild index manually. We also need to send email once that index gets completed. Sitecore does not provide any event for rebuild index like publishing. We have Publish:end and Publish:end:remote event for publishing but don’t have similar event for.
+      ]]>
+    </shortDescription>
+  </page>
+  <page>
+    <title><![CDATA[MANUAL REBUILD INDEX – TRACK START & COMPLETED]]></title>
+    <url><![CDATA[/manual-rebuild-index]]></url>
+    <shortDescription>
+      <![CDATA[
+        Recently we came into a requirement where we need to send email whenever sitecore user trigger rebuild index manually. We also need to send email once that index gets completed. Sitecore does not provide any event for rebuild index like publishing. We have Publish:end and Publish:end:remote event for publishing but don’t have similar event for.
+      ]]>
+    </shortDescription>
+  </page>
+
+</pages>

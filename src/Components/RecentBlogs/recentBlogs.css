@@ -1,0 +1,31 @@
+.RecentBlogContainer div {
+  background-color: #282c34;
+  color: whitesmoke;
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.RecentBlogContainer p {
+  background-color: whitesmoke;
+  color: #282c34;
+  font-size: medium;
+  font-weight: normal;
+  padding: 5px;
+  text-align: left;
+}
+.RecentBlogContainer .empty {
+  padding: 5px;
+  background-color: whitesmoke;
+}
+.RecentBlogContainer a {
+  text-decoration: none;
+  color: #282c34;
+}
+.RecentBlogContainer a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  color: #e45036;
+}

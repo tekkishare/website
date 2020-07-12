@@ -1,0 +1,66 @@
+.HeaderParent {
+  background-color: #282c34;
+}
+
+.headerMenu {
+  height: 50px;
+}
+.headerLogoLeft {
+  text-align: left;
+  /*width: 300px;*/
+  float: left;
+}
+.headerLogoright {
+  float: right;
+}
+.headerLogoImage {
+  width: 75px;
+  height: 50px;
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+.headerNavigaionLink {
+  height: 100%;
+  vertical-align: bottom;
+  font-size: large;
+}
+
+.menuUL {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menuUL li {
+  float: left;
+}
+
+.menuUL li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  /* padding-right: 50px; */
+  text-decoration: none;
+}
+
+.menuUL li a:hover {
+  background-color: whitesmoke;
+  color: #070707;
+  font-weight: bold;
+}
+
+.FooterMain {
+  position: absolute;
+  /* bottom: 0; */
+  width: 100%;
+  background-color: #282c34;
+  color: whitesmoke;
+  font-size: large;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

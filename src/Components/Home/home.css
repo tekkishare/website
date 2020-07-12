@@ -1,0 +1,63 @@
+.pageItem {
+  text-align: center;
+  padding: 50px;
+}
+.pageTitle {
+  font-weight: bold;
+  font-size: xxx-large;
+  word-wrap: break-word;
+}
+.pageTitle a {
+  font-weight: bold;
+  font-size: xxx-large;
+  text-decoration: none;
+  color: #282c34;
+  word-wrap: break-word;
+}
+.pageShortDescription {
+  font-size: x-large;
+  font-weight: normal;
+  line-height: 35px;
+  margin-bottom: 30px;
+  word-wrap: break-word;
+}
+
+.pageButton a {
+  /* display: block; */
+  width: 250px;
+  height: 50px;
+  background: #282c34;
+  padding: 10px;
+  /* text-align: center; */
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: x-large;
+}
+.pageButton a:hover {
+  width: 250px;
+  height: 50px;
+  background: #e45036;
+  padding: 10px;
+  /* text-align: center; */
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: x-large;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 480px) {
+  div.pageTitle a {
+    font-weight: bold;
+    font-size: xx-large;
+    word-wrap: break-word;
+    line-height: 2px;
+  }
+  div.pageItem {
+    padding: 50px;
+  }
+}
