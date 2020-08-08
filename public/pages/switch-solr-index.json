@@ -1,0 +1,47 @@
+{
+  "blogHeading": "Switch SOLR Index",
+  "metaTitle": "Switch SOLR Index",
+  "metaDescription": "Switching Solr index on production",
+  "metaKeywords": "Sitecore, Sitecore Performance",
+  "metaImage": "/images/switch_solr_index.jpg",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Rebuilding of index is a very common scenario if your website is built on Sitecore. During the maintenance of the websites, you come in the situation when you have to rebuild your indexes.</p><p>Here the question is, <b>what is the problem in triggering index rebuild event?</b> The answer is, while performing index rebuild activity you will not be able to make any search on that particular core/index. So during that period you website would be either completely down or some functionality would be down during index rebuild. Duration of this activity completely depends on the index/core size. Sometime it takes few hours.</p><p>Next question is, what the solution of the above issue.</p><p>So if we can create a duplicate/secondary index of that particular index and perform the rebuild on the secondary index. Once the rebuilding and the optimization of the index completes, Sitecore switches the rebuilt and optimized index is used.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "<b>SwitchOnRebuildSolrSearchIndex</b>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<p>SwitchOnRebuildSolrSearchIndex will help us in achieving this. Below are the steps to switch Solr index:</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "<p><b>Step: 1. Create a secondary/duplicate core</b><ul><li>Copy the existing core (for example: sitecore_web_index) folder</li><li>Rename the copied folder with stecore_web_index_rebuild (you can put any name)</li><li>Update the core name. Open the file <b>core.properties</b> in the notepad and update the newly renamed core name (sitecore_web_index_rebuild) as per above example.</li><li>Restart the SOLR server.</li><li>Check your SOLR URL (<b>https://localhost:8983/solr/</b>). You will find the newly created core here.</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "<p><b>Step-2: Update configuration:</b><ul><li>Open the index configuration file (\\App_Config\\Sitecore\\ContentSearch\\Sitecore.ContentSearch.Solr.Index.Web.config) as per given example above. Every index would have seperate configuration file.</li><li>Change type reference</li><li>Add rebuildcore parameter</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 6,
+      "content": "",
+      "refrence": "/images/switch_solr_index.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 7,
+      "content": "<p>That's all.</p><p>Thanks and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

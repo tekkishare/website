@@ -1,0 +1,69 @@
+{
+  "blogHeading": "FULL PUBLISH - SITECORE PUBLISHING",
+  "metaTitle": "FULL PUBLISH - SITECORE PUBLISHING",
+  "metaDescription": "Track Sitecore publishing",
+  "metaKeywords": "Sitecore, Publishing",
+  "metaImage": "/images/full-publishing/publish-2.JPG",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Content authors update content regularly to make their site up to date. Once the changes completed, they must have to publish the content to push the latest changes on production or live website.</p><p>We have multiple options available to publish content from master (edit mode) to web (live mode).</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "FULL PUBLISH",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 3,
+      "content": "<p>Publish entire database/content/website (entire publishable content regardless of whether it has changed or not) is considered as a full publish. It is very costly in terms of performance. How much it will take time, it depends on the size of the content/website. It transfers entire publishable content from master to the web database. It does not check the content is modified or not. It simply copy items from master database and paste them into web database. So, it is most expensive publishing.</p><p>Its <b>not recommended to perform full publish</b> activity in day to day activity.</p><p>Below are the scenarios when you can opt full publish option:</p><p><ul><li>When you are not sure about what all changes made by you or your team</li><li>when you think your site content is not consistent between master and web</li><li>First time you need to publish your entire website</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "TRACKING FULL PUBLISH",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 5,
+      "content": "<p>As per my knowledge, Sitecore does not have any dedicated even for this. But we can track it using <b><u>publish:end</u></b> or <b><u>publish:complete</u></b> event. This event get fire after completing your publishing activity. So whenever content authors publish any content, these events fire once. So we can use any of these events.</p><p>Next thing is how can we know that content author did full publish or not. We can use <b>PublishMode</b> to check this.</p><p><b>PublishMode</b> is an enum and its value can be either of the following:</p><ul><li>Full = 1</li><li>Incremental = 2</li><li>SingleItem = 3</li><li>Smart = 4</li></ul><p><b>Create a patch file to capture publish:end event.</b></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 6,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/full-publishing/publish-1.JPG",
+      "style": "Image"
+    },
+    {
+      "sequence": 7,
+      "content": "<p>Create a class file to track event:</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/full-publishing/publish-2.JPG",
+      "style": "Image"
+    },
+    {
+      "sequence": 9,
+      "content": "WHY DO YOU NEED TO TRACK FULL PUBLISH ACTIVITY",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 10,
+      "content": "<p>As you know we should ignore this activity as you can. Following are the possible scenario where we might need to track full publish:</p><p><ul><li>Client may want to perform this expensive activity only by admin or few specific users</li><li>Client may want to sent an email to a DL whenever such activity get invoked to watch/monitor the website performance</li></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 17,
+      "content": "<p><br/>Thanks for your time. Happy learning & sharing.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "blogHeading": "MANUAL REBUILD INDEX – TRACK START & COMPLETED",
+  "metaTitle": "MANUAL REBUILD INDEX – TRACK START & COMPLETED",
+  "metaDescription": "Manual Rebuild Index - Track Start and Completed",
+  "metaKeywords": "Sitecore, Rebuild Index, Index Start, Index Tracking, Index Event",
+  "metaDate": "17-Nov-2019",
+  "metaImage": "/images/manual-rebuild-index-tracking.jpg",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Recently we came into a requirement where we need to send email whenever sitecore user trigger rebuild index manually. We also need to send email once that index gets completed.</p><p>Sitecore does not provide any event for rebuild index like publishing. We have <b>Publish:end</b> and <b>Publish:end:remote</b> event for publishing but don’t have similar event for rebuild index.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "After seaching a lot over google, we could not find any blog regarding the same. Hence, I posted this question on Stack Exchange. I found answer of first part (sending email just after triggering manual build index).",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "",
+      "refrence": "https://sitecore.stackexchange.com/questions/22997/sitecore-rebuild-index-complete-tracking",
+      "style": "Link"
+    },
+    {
+      "sequence": 4,
+      "content": "This help was enough so we found the answer of other part as well. So thought to share the same with Sitecore Community.",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "Solution:",
+      "style": "BoldHeading"
+    },
+    {
+      "sequence": 6,
+      "content": "We have to override the IndexingManager wizard.",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "When you open Indexing Manager popup from Sitecore Control Panel below files being used to call it’s respective code:",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "<b>\\sitecore\\shell\\Applications\\ContentSearch\\IndexingManager.xml</b>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "We need to change this with our own class:",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 10,
+      "content": "<WizardForm Application=”Search/RebuildSearchIndex” CodeBeside=”MyAssembly.Namespace.CustomIndexingManagerWizard, MyAssembly“>",
+      "style": "Normal"
+    },
+
+    {
+      "sequence": 11,
+      "content": "<p>Add the reference of the below assemblies in your project:</p><ul><li>Sitecore.ContentSearch.dll</li><li>Sitecore.ContentSearch.Client.dll</li></ul><p>Now need to create a class <b>CustomIndexingManagerWizard</b>:</p>",
+      "style": "NormalHtml"
+    },
+
+    {
+      "sequence": 12,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/manual-rebuild-index-tracking.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 13,
+      "content": "<p>When you see the above code, method FullRebuild() is a Sitecore job. Sitecore job has a Finished event as well. So I used this event to track the Rebuild Index Complete task.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "Thanks for your time<br/>Happy learning.:",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 401,
+      "content": "<p><br/><br/>References:</p><ul><li><a href='https://sitecore.stackexchange.com/questions/22997/sitecore-rebuild-index-complete-tracking'>https://sitecore.stackexchange.com/questions/22997/sitecore-rebuild-index-complete-tracking</a></li></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

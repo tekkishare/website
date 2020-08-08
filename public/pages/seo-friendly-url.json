@@ -1,0 +1,80 @@
+{
+  "blogHeading": "SEO FRIENDLY URL",
+  "metaTitle": "SEO FRIENDLY URL",
+  "metaDescription": "Creating SEO Friendly URL",
+  "metaKeywords": "Sitecore, SEO, Friendly URL",
+  "metaImage": "/images/seo-friendly-url-1.JPG",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Today I would like to discuss regarding SEO Friendly URL issue then will discuss the resolutions.</p><p>Every project has to work on SEO (Search Engine Optimization). Particularly I would like to tell you about the URL. As per SEO recommendation, our URL should be in small letters and it should not have space in URLs.</p><p>To take care of this problem, we can write Sitecore event handler:</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "",
+      "refrence": "https://gist.github.com/JitendraSitecore/52c740b8807707ae699d3882d4dabf66.js",
+      "style": "CodeGist"
+    },
+    {
+      "sequence": 3,
+      "content": "",
+      "refrence": "/images/seo-friendly-url-1.JPG",
+      "applySize": true,
+      "style": "Image"
+    },
+    {
+      "sequence": 4,
+      "content": "Create a patch file to configure this handler.",
+      "style": "Normal"
+    },
+    {
+      "sequence": 5,
+      "content": "",
+      "refrence": "/images/seo-friendly-url-2.JPG",
+      "applySize": true,
+      "style": "Image"
+    },
+    {
+      "sequence": 6,
+      "content": "<p>The above handler would work only if a content author is creating any page. While creating or renaming item/page, it will assign user given name to the item’s display name attribute and after that, it converts the given name into the lower case and replaces the space with the “-” (configured character).</p><p>But what if the hundreds of pages have already been created and now have to correct their URL as per the SEO guidelines. The above code will not work in this case.</p><p>At this point in time we can have few options:</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "<ol><li>Change the page name manually. If you have hundreds of page, it is very difficult and time-consuming task. Since you are doing manual, it can be error-prone as well.</li><li>Write a Sitecore command and configure it on the control panel. Whenever you will click on the command present on control panel it would run and will correct your URLs. But it will also take some time and have to write C# code on this.</li><li>Write a Sitecore Powershell script for this. It’s very quick.</li></ol>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "<p>Especially I am very much impressed with Sitecore Powershell script. It saves our live whenever you have to perform the bulk operation on Sitecore items.</p><p><b>Powershell Script for replacing space from the URL and making the URL in small caps:</b></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "",
+      "refrence": "/images/seo-friendly-url-3.JPG",
+      "applySize": false,
+      "style": "Image"
+    },
+    {
+      "sequence": 10,
+      "content": "<p>The above code is valid when items under given path have pages only otherwise you can add templateId in the condition with Get-ChildItem.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "You can check the complete code here.",
+      "refrence": "https://gist.github.com/JitendraSitecore/52c740b8807707ae699d3882d4dabf66",
+      "style": "Link"
+    },
+    {
+      "sequence": 12,
+      "content": "Thanks for your time. !!!:)<br/><br/><br/>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

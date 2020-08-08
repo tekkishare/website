@@ -1,0 +1,31 @@
+{
+  "blogHeading": "UNABLE TO CONNECT TO SITECORE_SXA_MASTER_INDEX, SITECORE_SXA_WEB_INDEX",
+  "metaTitle": "UNABLE TO CONNECT TO SITECORE_SXA_MASTER_INDEX, SITECORE_SXA_WEB_INDEX",
+  "metaDescription": "Unable to connect SITECORE_SXA_MASTER_INDEX SITECORE_SXA_WEB_INDEX",
+  "metaKeywords": "Sitecore,SITECORE_SXA_MASTER_INDEX,SITECORE_SXA_WEB_INDEX",
+  "metaImage": "/images/switch_solr_index.jpg",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>When I installed Sitecore 9.0.2 and Sitecore Commerce 9.0.2, I am getting below errors in the log files:</p><p><b>ERROR Unable to connect to [https://localhost:8983/solr], Core: [sitecore_sxa_master_index]</b></p><p><b>ERROR Unable to connect to [https://localhost:8983/solr], Core: [sitecore_sxa_web_index]</b></p><p>The above issue is not related to the Sitecore Commerce but it is related to Sitecore 9.0.2 and Sitecore SXA (Sitecore Experience Accelerator).</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "When you open the SOLR, you will not find these above cores (<b>sitecore_sxa_master_index</b> and <b>sitecore_sxa_web_index</b>). I don't know the exact reason why these cores have not created. :) ",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "Since these cores don't exist, so you can fix these issues by creating these cores inside the SOLR.",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "<p>That's all.</p><p>Thanks and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

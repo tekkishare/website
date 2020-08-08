@@ -1,0 +1,163 @@
+{
+  "blogHeading": "EXPOSING DIGITAL CONTENT – SITECORE ODATA ITEM SERVICE",
+  "metaTitle": "EXPOSING DIGITAL CONTENT – SITECORE ODATA ITEM SERVICE",
+  "metaDescription": "Exposing Digital content – Sitecore OData Item Service",
+  "metaKeywords": "Sitecore, content share, OData, Sitecore OData",
+  "metaImage": "/images/odata-item-service/odata-3.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>In today’s world sharing digital content across various channel is very common.  People create content at a central place and share the same content across various channel/platform sometime various app/mobile app as well.</p><p>Sitecore also having multiple ways to share the content. The most common way <b>Sitecore JSS layout</b> service. Another way of sharing the content is <b>Sitecore OData Item Service</b>.</p><p>Scope of this post is to talk about Sitecore OData Item Service. So, in which scenario, should we consider this OData Item Service approach?</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "<p>Suppose you are working on a traditional Sitecore based CMS website (MVC/ASP.Net based website). Either your website got migrated to Sitecore latest version (today’s latest version is 9.3) or you might be created traditional Sitecore website using MVC/ASP.Net. Later-on client want to expose the content to another platform/website/app. Content can be same of different, but they want to keep all the content at the central place and all the available platform/app should be consuming the content placed at common place. In this scenario, Sitecore OData Item Service is the ideal solution.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<p><b><u>Sitecore OData Item Service configuration</u></b></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "<p><b>Step-1</b>:Navigate to the Service -> API Keys item (/sitecore/system/Settings/Services/API Keys) </p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/odata-item-service/odata-1.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 6,
+      "content": "<p><b>Step-2</b>: Right click on API Key and choose <b>OData Item API Key</b></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/odata-item-service/odata-2.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 8,
+      "content": "<p><b>Step-3</b>: Fill the values as per requirement</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/odata-item-service/odata-3.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 10,
+      "content": "<p><b>Database</b>: Enter the database name for which you would like to share content. It would always send content from the mentioned database.</p><p><b>Search Filter</b>: Mention search filter. OOTB value indicates to share the latest version of content.</p><p><b>CORS Origin</b>: You can allow for origins. Use semicolons in case of multiple values. If you want to allow for all domains, you can use star (*).</p><p><b>AllowedControllers:</b> If you want to expose to all the controller, you can use start (*) otherwise you can mention the semicolons separated controllers.</p><p><b>Impersonation User</b>: In case of blank, Sitecore considers Sitecore.Services.AnonymousUser. </p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "<p><b>Step-4</b>: Publish you OData Item API Key</p><p><br/>Now your Sitecore OData Item Service is ready to consume. </p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 12,
+      "content": "<p><b><u>How to access/consume Sitecore OData Item Service</u></b></p><p>OData Item Service API URL format:</p><p><b>URL</b>: {Sitecore_instance_hostname}/sitecore/api/ssc/aggregate/content/Items('{Item_ID/Item_Path}')</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 13,
+      "content": "<p><b>Header</b><br/>Key=sc_apikey<br/>Value={api_key}</p><p><b>Method</b>:GET</p><p>We can use Postman to test your OData Item Service:</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "<p><b>URL</b>:https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('<i>{EC04E21D-59BC-4FB1-881C-9D3E04ADD02C}</i>')</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 15,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/odata-item-service/odata-2.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 16,
+      "content": "<p>We can pass item path as well to get the item details</p><p><b>URL</b>:https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('<i>/sitecore/content/Demo/BeautyCare/Home/News/A plan to revive a broken economy</i>')</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 17,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/odata-item-service/odata-3.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 18,
+      "content": "<p>As you can see in the screenshot, it is returning only mentioned item’s details (OOTB fields value). It is not returning values against custom fields or we can say any content.</p><p><b>$expand=Fields</b></p><p>QueryString parameter <u>$expand=Fields</u> can be used to get all the fields available. It would also contain OOTB item property values like Id, Name etc.</p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{EC04E21D-59BC-4FB1-881C-9D3E04ADD02C}')?$expand=Fields</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 19,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/odata-item-service/odata-4.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 20,
+      "content": "<p><b>$expand=FieldValues</b></p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{EC04E21D-59BC-4FB1-881C-9D3E04ADD02C}')?$expand=FieldValues </p><p>It returns given item details with custom fields values.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 21,
+      "content": "<p><b>$select=Id,Name,TemplateName</b></p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{EC04E21D-59BC-4FB1-881C-9D3E04ADD02C}')?$select=Id,Name,TemplateName</p><p>It returns values of fields mentioned with $select query string parameter.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 22,
+      "content": "<p><b>$expand=FieldValues($select=NewsTitle,NewsBody)</b></p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{EC04E21D-59BC-4FB1-881C-9D3E04ADD02C}')?$expand=FieldValues($select=NewsTitle,NewsBody) </p><p>It returns mentioned item details and custom fields value mentioned with $select </p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 23,
+      "content": "<p><b>Children</b></p><p>You can use children option to get the children items details of the mentioned item id/path.</p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{B8F7AE0F-244D-4D32-8636-E6C892E4C2DF}')/children </p><p>You can use children with other mentioned options as well.</p><p>https://sc93sc.dev.local/sitecore/api/ssc/aggregate/content/Items('{B8F7AE0F-244D-4D32-8636-E6C892E4C2DF}')/children?$expand=Fields </p><p>It would return children items detail with their field’s details and values.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 400,
+      "content": "<p>Thanks for your time and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 401,
+      "content": "<p><br/><br/>References:</p><ul><li><a href='https://doc.sitecore.com/developers/93/sitecore-experience-manager/en/api-keys-for-the-odata-item-service.html'>https://doc.sitecore.com/developers/93/sitecore-experience-manager/en/api-keys-for-the-odata-item-service.html</a></li><li><a href='https://doc.sitecore.com/developers/93/sitecore-experience-manager/en/the-odata-item-service.html'>https://doc.sitecore.com/developers/93/sitecore-experience-manager/en/the-odata-item-service.html</a></li></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

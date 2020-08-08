@@ -1,0 +1,117 @@
+{
+  "blogHeading": "WILDCARD ITEM IN SITECORE (DYNAMIC URLS HANDLER)",
+  "metaTitle": "WILDCARD ITEM IN SITECORE",
+  "metaDescription": "Wildcard item in Sitecore - Dynamic Urls Handler",
+  "metaKeywords": "Sitecore, URL Handler",
+  "metaImage": "/images/wieldcard-item-in-sitecore/wieldcard-item4.png",
+  "contents": [
+    {
+      "sequence": 0,
+      "content": "BACKGROUND",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 1,
+      "content": "<p>For handling dynamic URLs, you can use wildcard item in the Sitecore. Only difference with the regular Sitecore item is, the name of the item is wildcard (*) character. Display name of that item can be anything.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item1.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 3,
+      "content": "<p>If the name of the product is \"product-1\", its URL would be <b>http://domain/products/product-1</b>. We can parse the product name from the URL (in this case \"product-1\").</p",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "WHY DO WE NEED WILDCARD ITEM?",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 5,
+      "content": "<p>Suppose you are building a website where you need to display products informations. Here the UI or layout of the product pages are same but only the main products information are different. So here you have two options:</p><p><ol><li>Create a separate page for each of the products</li><li>Create a common page for each of the products</li></ol></p></p>In case of first approach, we don't need any wildcard item inside the Sitecore since we have separate page for each of the products.</p><p>In case of second approach, we need wildcard item. In this approach initial URL (<b>http://domain/products/</b>) of the product pages would be same.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 6,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item2.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 7,
+      "content": "<p>If the name of the product is \"product-1\", its URL would be <b>http://domain/products/product-1</b>. We can parse the product name from the URL (in this case \"product-1\").</p><p><b><u>Note:</u></b>Do you need a component for each of the product or not it depends on the business. If you have a service/third party service which is accept product id and it provides the details of the product, you don't need to create Sitecore component for each of the product. In this particular case, I would suggest to create a common rendering and view for displaying product. It would parse the URL and find the product id. Using that service, it will get the product details and display the same. So you don't require anything inside the wildcard item. You just need to create an item having name is * (wildcard character).</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "HOW TO RESOLVE URL?",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 9,
+      "content": "<p>Whenever you make a call to any URL, the following pipeline's processor get called.</p><p> <i><span><</span>processor type=\"Sitecore.Pipelines.HttpRequest.ItemResolver, Sitecore.Kernel\"/></i></p><p>As you see above, the URL for the product-1 is <b>http://domain/products/product-1</b>. So when you make a call to this URL, ItemResolver processor try to find item (product-1) at the Sitecore path <b>/home/products/product-1</b>. Since this item (page) does exist inside the Sitecore at the mentioned location, it throws error. It means you need to override the existing item search logic. Fortunately it is very simple in Sitecore.</p><p>Using any .net dissembler, you can see the code written for the ItemResolver. Just copy the code of method Process(HttpRequestArgs args).</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 10,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item3.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 11,
+      "content": "<p>Just keep in mind, the initial URL (<b>http://domain/products/</b>) would be same for each of the product.</p><p>Change the code as per given below line:</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 12,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item4.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 13,
+      "content": "<p>One more change is require in the code of method Processor.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item5.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 15,
+      "content": "<p><b>Note</b>: I have hard coded the item path here. But if you want to make it configuration there are few approaches for the same.</p><ol><li>Create a XML file</li><li>Create a data template inside the Sitecore and create multiple component using the same data template inside a predefined global folder.</li></ol></p><p>I just wrap the below line inside the null check if clause</p><p><i> item = this.ResolveUsingDisplayName(args);</i></p><p>Now change the default ItemResolver with the new one inside the sitecore.config file</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 16,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/wieldcard-item-in-sitecore/wieldcard-item6.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 17,
+      "content": "<p><br/>Thanks for your time. Happy learning & sharing.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

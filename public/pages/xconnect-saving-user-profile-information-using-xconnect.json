@@ -1,0 +1,99 @@
+{
+  "blogHeading": "xCONNECT - SAVING USER PROFILE INFORMATION USING xCONNECT",
+  "metaTitle": "XCONNECT - SAVING USER PROFILE INFORMATION USING XCONNECT",
+  "metaDescription": "Saving user profile using Sitecore xConnect",
+  "metaKeywords": "Sitecore, xConnect",
+  "metaImage": "/images/xconnect-save-user-profile/xconnect-1.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "XCONNECT",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 2,
+      "content": "<p>One of the main changes from Sitecore 8.0 to 9.0 is, Sitecore changed xDB related API to the service based API. When you install Sitecore 9.0 or Sitecore 9 - Update 1, it creates two websites in your machine. One for your regular CMS and another is for hosting service, that can be used to perform xDB related activity.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/xconnect-save-user-profile/xconnect-1.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 4,
+      "content": "<p>Now, xDB can't be connect directly by any means. We must have to use xConnect service to play around xDB.</p",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "HOW TO STORE USER PROFILE USING XCONNECT",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 6,
+      "content": "<p>As you can see above, we have to create a instance of xConnect to save user profile information into xDBs.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "<p><ul><li>XConnectClient client = SitecoreXConnectClientConfiguration.GetClient();</li></ul></p>",
+      "style": "CODE"
+    },
+    {
+      "sequence": 8,
+      "content": "<p>We can save user profile information as a contact, hence have to create an object of contact.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "<p><ul><li>Sitecore.XConnect.Contact contact = new Sitecore.XConnect.Contact(new ContactIdentifier(\"Custom\", user.Username , ContactIdentifierType.Known));</li><li>client.AddContact(contact);</li></ul></p>",
+      "style": "CODE"
+    },
+    {
+      "sequence": 10,
+      "content": "<p>xDB store information as a Facet. So, either we have to use existing (out of the box) facet or have to create custom facet. Creating a custom facet is not in scope of this article. So, we are using out of the box facet.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "<p><ul><li>PersonalInformation personalInfoFacet = new PersonalInformation()</li><li>{</li><li class=\"tab\">FirstName = user.FirstName ?? \"Firstname\",</li><li class=\"tab\"> LastName = user.LastName ?? \"Lastname\"</li><li>}</li><li>FacetReference reference = new FacetReference(contact, PersonalInformation.DefaultFacetKey);</li><li>client.SetFacet(reference, personalInfoFacet);</li><li class=\"comment\">// Facet without a reference, using default key</li><li>EmailAddressList emails = new EmailAddressList(new EmailAddress(user.Username+\"@gmail.com\", true), \"Home\");</li><li>client.SetFacet(contact, emails);</li><li class=\"comment\">// Facet without a reference, key is specified</li><li>AddressList addresses = new AddressList(new Address() { AddressLine1 = \"Cool Street 12\", City = \"Sitecore City\", PostalCode = \"ABC 123\" }, \"Home\");</li><li>client.SetFacet(contact, AddressList.DefaultFacetKey, addresses);</li><li class=\"comment\">// Submit operations as batch</li><li>client.Submit();</li></ul></p><br/><br/>",
+      "style": "CODE"
+    },
+    {
+      "sequence": 12,
+      "content": "HOW TO VERIFY PROFILE INFORMATION",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 13,
+      "content": "<p>You can see your saved profile information in the database  <b>SC91_Xdb.Collection.Shard0</b>, table <b>ContactFacets</b></p><p>Execute below query:</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "<p><ul><li>select * from [xdb_collection].ContactFacets order by LastModified desc</li></ul></p><p><br/></p>",
+      "style": "CODE"
+    },
+    {
+      "sequence": 15,
+      "content": "",
+      "applySize": true,
+      "refrence": "/images/xconnect-save-user-profile/xconnect-2.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 16,
+      "content": "<p>As you can see in the above screenshot, for each of the facet, Sitecore create a new row. You can identify by column FacetKey. You can get your profile data in the JSON formation against the column FacetData.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 17,
+      "content": "<p><br/>Thanks for your time. Happy learning & sharing.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

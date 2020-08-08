@@ -1,0 +1,103 @@
+{
+  "blogHeading": "INSTALLING – SITECORE 9.0 UPDATE 1",
+  "metaTitle": "INSTALLING – SITECORE 9.0 UPDATE 1",
+  "metaDescription": "Install Sitecore 9.0-Update 1",
+  "metaKeywords": "Sitecore Installation, Sitecore",
+  "metaImage": "/images/sc91-install-41.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Sitecore 9.0 Update – 1 has been launched recently. I got a chance to install it. During my insallation, I listed down the steps which I performed.</p><p><b>PREREQUISITES:</b></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "<p><ul><li>Windows 10</li><li>MS SQL Server 2017</li><li>MS SQL Management Studio</li><li>.Net Framework 4.6.2 or later</li><li><a href='https://www.microsoft.com/en-us/download/details.aspx?id=43717'>Web Deploy 3.6</a></li><li><a href='http://archive.apache.org/dist/lucene/solr/6.6.2/solr-6.6.2.zip'>SOLR 6.6.2</a></li><li><a href='http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html'>Java Runtime Environement</a></li><li><a href='https://nssm.cc/download'>NSSM</a></li><li><a href='https://dev.sitecore.net/~/media/3093D892E19B4ACFB2DC68622C18E409.ashx'>Sitecore 9.0 Update -1</a></li><li>Sitecore License file</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<p><b>Step – 1:</b></p><p><ul><li>Install Windows – 10 on your machine</li><li>Enable IIS using Turn Windows Feature on</li><li>Install <a href='https://www.microsoft.com/en-us/download/details.aspx?id=43717'>Web Deploy 3.6</a></li><li>Install <a href='http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html'>Java Runtime Environement</a>(64 bit)</li><li><a href='https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html'>Set JAVA_HOME</a></li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "<p><b>Step – 3:</b></p><p><ul><li>Create a new folder D:\\SC91_INSTALL</li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "<p><b>Step – 4:</b></p><p><ul><li>Download SOLR 6.6.2</li><li>Copy and past it to D:\\SC91_INSTALL and unzip it</li><li>Open command prompt in administrator mode and <b>run solr start -p 8983</b> as per given in the screenshot</li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 6,
+      "applySize": false,
+      "refrence": "/images/sc91-install-11.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 7,
+      "content": "<p><ul><li>Open browser and navigate to <b>http://localhost:8983/solr</b></li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "<p><b>Step – 5:</b></p><p><ul><li>Install NSSM</li><li>Copy and paste nssm-224.zip to D:\\SC91_INSTALL</li><li>Unzip NSSM</li><li>Open command promort in administrator mode</li><li>Go to D:\\SC91_INSTALL\\nssm-2.24\\win64\\</li><li>Execute command :</li></ul></p><p><b>nssm install Solr_6.6.2</b><br/>A popup will come. Provide below informations:<br/>Path: <b>D:\\SC91_INSTALL\\solr-6.6.2\\bin\\solr.cmd</b><br/>Arguments: <b>start -f -p 8983</b><br/>Click on <b>Install Service</b></p><p><ul><li>You will get the success message.</li><li>Run windows services Solr_6.6.2</li></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "applySize": false,
+      "refrence": "/images/sc91-install-2.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 10,
+      "content": "<p><b>Step – 6:</b></p><p>Host Solr service on secure (HTTPS)</p><p><ul><li>Download <b><a href='https://gitlab.com/viet.hoang/workshop/blob/master/Scripts%20for%20Sitecore%209/solrssl.ps1'>solrssl.ps1</a></b> and copy it to D:\\SC91_INSTALL</li><li>Execute command:<br/><b>Set-ExecutionPolicy Unrestricted</b></li><li>Go to D:\\SC91_INSTALL</li><li>Run the downloaded script (<b>.\\solrssl</b>)</li><li>It would aks the keytool path so provide it <b>C:\\Program Files\\Java\\jre1.8.0_161\\bin\\keytool.exe</b><br/>You will find it where you have install Java runtime.</li><li>It will generate two files at D:\\SC91_INSTALL (<b>solr-ssl.keystore.jks</b> and <b>solr-ssl.keystore.p12</b>)</li><li>Copy these files to <b>D:\\SC91_INSTALL\\solr-6.6.2\\server\\etc</b></li><li>Open <b>D:\\SC91_INSTALL\\solr-6.6.2\\bin\\solr.in.cmd</b> in notepad and append the below lines at the end:<br/><br/>set SOLR_SSL_KEY_STORE=etc/solr-ssl.keystore.jks<br/>set SOLR_SSL_KEY_STORE_PASSWORD=secret<br/>set SOLR_SSL_KEY_STORE_TYPE=JKS<br/>set SOLR_SSL_TRUST_STORE=etc/solr-ssl.keystore.jks<br/>set SOLR_SSL_TRUST_STORE_PASSWORD=secret<br/>set SOLR_SSL_TRUST_STORE_TYPE=JKS<br/>set SOLR_SSL_NEED_CLIENT_AUTH=false<br/>set SOLR_SSL_WANT_CLIENT_AUTH=false</li><li>Restart Solr_6.6.2 service</li><li>This time open solr using secure URL (<b>https://localhost:8983/solr</b>)</li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "<p><b>Step – 7:</b></p><p>Enable contained Database Authentication</p><p><ul><li>Launch MS SQL Server Management Studio and login as an administrtor</li><li>Run the below following query:<br/><b>sp_configure ‘contained database authentication’, 1;</b><br/><b>GO<br/>RECONFIGURE;<br/>GO</b></li></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 12,
+      "content": "<p><b>Step – 8:</b></p><p>Keep your Sitecore community credentials ready. You will have to login to download Sitecore 9.0 Update -1. This is available only for the <b>Sitecore Certified Professional.</b></p><p><ul><li>Download and unzip <a href='https://dev.sitecore.net/~/media/8551EF0996794A7FA9FF64943B391855.ashx'>package for XP single</a></li><li>Copy and paste the following zip files to D:\\\\SC91_INSTALL<br/><b>Sitecore 9.0.1 rev. 171219 (OnPrem)_single.scwdp.zip<br/>Sitecore 9.0.1 rev. 171219 (OnPrem)_xp0xconnect.scwdp.zip</b></li><li>Unzip XP0 Configuration files 9.0.1 rev. 171219 and copy and paste all the files to D:\\SC91_INSTALL</li><br/>sitecore-solr.json<br/>sitecore-XP0.json<br/>xconnect-createcert.json<br/>xconnect-solr.json<br/>xconnect-xp0.json<br/></ul></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 13,
+      "content": "<p><b>Step – 9:</b></p><p>Put your Sitecore license file at D:\\SC91_INSTALL</p><ul><li>Download sc9_install.ps1 and move it to D:\\SC91_INSTALL</li><li>Open this file in notepad and made the following changes:</li><br/>$prefix = \"SC91\"<br/>$PSScriptRoot=\"D:\\SC91_INSTALL\"<br/>$XConnectCollectionService = \"$prefix.xconnect\"<br/>$sitecoreSiteName = \"$prefix.sc\"<br/>$SolrUrl = \"https://localhost:8983/solr\"<br/>$SolrRoot = \"D:\\SC91_INSTALL\\solr-6.6.2\"<br/>$SolrService = \"Solr_6.6.2\"<br/>$SqlServer = \"Machinename\\InstanceName\"<br/>$SqlAdminUser = \"sa\"<br/>$SqlAdminPassword=\"sa_password\"<br/></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "<p><b>Step – 10:</b></p><ul><li>Open Windows Powershell in administrator mode</li><li>Execute the below command on Powershell</li><br/>Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2<br/><br/>Install-Module SitecoreInstallFramework<br/><br/>Install-Module SitecoreFundamentals<br/><br/><li>Execute the script sc9_install<br/><img src=\"/images/sc91-install-3.png\" /></li></ul><p>Now your installation is completed 🙂 You can browse your website.<br/><img src=\"/images/sc91-install-41.png\" /></p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 15,
+      "content": "<p><b>Step – 11:</b></p><p>After installing Sitecore, must rebuild the search indexes, and the Link databases.</p><p>To rebuild all the indexes:</p><ol><li>On the Sitecore Launchpad, click Control Panel, and in the Indexing section, click Indexing manager.</li><li>In the Indexing Manager dialog box, click Select all, and then click Rebuild.</li></ol><p>To rebuild the Link databases for the Master and Core databases:</p><ol><li>On the Sitecore Launchpad, click Control Panel, and in the Database section, click Rebuild Link Databases.</li><li>Select the Master and Core databases and then click Rebuild.</li></ol><p>Now you are all set.</p><br/>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 16,
+      "content": "<p>That's all.<br/></p><p>Thanks for your time and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

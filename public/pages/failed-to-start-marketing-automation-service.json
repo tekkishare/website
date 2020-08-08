@@ -1,0 +1,71 @@
+{
+  "blogHeading": "FAILED TO START THE MARKETING AUTOMATION ENGINE SERVICE",
+  "metaTitle": "FAILED TO START THE MARKETING AUTOMATION ENGINE SERVICE",
+  "metaDescription": "[Fixed] Marketing Automation Engine Service",
+  "metaKeywords": "Sitecore Analytics, Sitecore Marketing, Sitecore Marketing Automation Engine Service",
+  "metaImage": "/images/un-signed-certificate.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>From last few days, my analytics tracker was not working. So I thought to fix this issue today.</p><p><b>Issue/Problem Detail:</b></p><p>When I start “Sitecore Marketing Automation Engine – <Sitecore_Instance_Name>.MarketingAutomationService”, it was thowing error and it does not letting them start.</p><p>When I checked the log file, below issue was writting:</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "<p style='color:red;font-size:large'><i>2020-06-01 10:01:12.623 +05:30 [Error] Failed to start the Marketing Automation Engine service. System.InvalidOperationException: This configuration has not been initialized. Please call the initialize method before using it.</i></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<p style='color:red;font-size:large'><i>2020-06-01 10:44:06.196 +05:30 [Error] Error initializing XConnect client. System.AggregateException: One or more errors occurred. —> Sitecore.XConnect.XdbCollectionUnavailableException: An error occurred while sending the request. —> System.Net.Http.HttpRequestException: An error occurred while sending the request.</i></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "When I checked my xConnect instance, it was working fine.",
+      "refrence": "",
+      "style": "Normal"
+    },
+    {
+      "sequence": 5,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/xconnect_fine.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 6,
+      "content": "<p>After searching a lot, I found the source of the issue. The culprit was non-signed certificates.</p><p>So, I moved these un signed certificate to the Intermediate Certification Authorities.</p><p>Executed below powershell command to check the un-signed certificates:</p><p><b>Get-Childitem cert:\\LocalMachine\\root -Recurse | Where-Object {$_.Issuer -ne $_.Subject}</b></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "",
+      "refrence": "/images/un-signed-certificate.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 8,
+      "content": "<p>Execute the below command to move your un-signed certificate to Intermediate Certificate Authorities:</p><p><b>Get-Childitem cert:\\LocalMachine\\root -Recurse | Where-Object {$_.Issuer -ne $_.Subject} | Move-Item -Destination Cert:\\LocalMachine\\CA</b></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "",
+      "refrence": "/images/transfer-certificate.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 10,
+      "content": "<p>Started the Sitecore Marketing Automation Engine. This time it got start.</p><p>It fixed my issue.</p><p>Thanks for your time.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "<p><br/><br/>References:</p><ul><li><a href='https://community.sitecore.net/developers/f/5/t/10020'>https://community.sitecore.net/developers/f/5/t/10020</a></li></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

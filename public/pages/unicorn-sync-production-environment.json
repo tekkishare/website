@@ -1,0 +1,31 @@
+{
+  "blogHeading": "UNICORN SYNC – PRODUCTION ENVIRONMENT",
+  "metaTitle": "UNICORN SYNC – PRODUCTION ENVIRONMENT",
+  "metaDescription": "Best Practices for Unicorn Sync on Production ",
+  "metaKeywords": "Sitecore, Unicorn Sync",
+  "metaImage": "/images/switch_solr_index.jpg",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "<p>Hello friends,</p><p>Today I would like to talk about a problem statement and its possible solution or workaround.</p><p><b>Problem Statement:</b></p><p>Suppose you are using Unicorn for Sitecore items serialization. You have deployed your code and Sitecore items on Staging/Production environment and released it to client/content author for content entry. So content author is doing content entry regularly and developers are doing their development as well. After sometime developers deployed the code and Sitecore item and ran unicorn sync. What will happen?</p><p>It would over write the staging/Production content.</p><p>What is the resolution of this issue?</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "<p><b>Solutions – 1 (Create multiple unicorn configuration files)</b></p><p>You can create multiple unicorn configuration files for non-production and production environment. In the production environment, you can disable sync for home and its children by excluding Home item in the unicorn configuration file.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<p><b>Solutions -2 (Sync items those are new on disk)</b></p><p>Using unicorn configuration file (<a href='https://github.com/SitecoreUnicorn/Unicorn/blob/master/src/Unicorn/Standard%20Config%20Files/Unicorn.Configs.NewItemsOnly.example'>Unicorn.Configs.NewItemsOnly.Example</a>), you can override the default behavior of unicorn to load/sync only items that are new on the disc. In this way, your existing item(s) will not be over write. When you run unicorn sync, it would sync only new items. It will not do anything for the existing items.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "<p>That's all.</p><p>Thanks for your time and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

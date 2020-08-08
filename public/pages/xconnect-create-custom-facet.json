@@ -1,0 +1,102 @@
+{
+  "blogHeading": "XCONNECT - CREATE CUSTOM FACET",
+  "metaTitle": "XCONNECT - CREATE CUSTOM FACET",
+  "metaDescription": "Sitecore facet",
+  "metaKeywords": "Sitecore, Facet",
+  "metaImage": "/images/create-custom-facets/facet-1.jpg",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "WHAT IS FACET",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 2,
+      "content": "<p>A facet is part of information that a contact or interaction can have. Sitecore xDB provide lots of out of the box facet that can be used to store user information inside the xDB database. For example: PersonalInformaiton, EmailAddress, ProfileScores, EngagementMeasures and many more...</p><p>You can see the complete list by using ILSpy tool by opening the assembly <b>Sitecore.XConnect.Collection.Model.dll</b>.</p><p>Sometimes out of the box facets are not sufficient to store all require user information. So you may have to create custom Facet to store customer/user details.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "HOW TO CREATE CUSTOM FACET",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 4,
+      "content": "<p>Following are the steps to create your own facet:</p><ol><li>Create custom facet class</li><li>Create a model class</li><li>Deploy model</li></ol><p><b>Create Custom Facet Class</b></p><p>I would suggest to use a new class library project for all your custom facet. Keep following things in your mind while createing custom facet class:</p><ul><li>Class must inherits from Sitecore.xConnect.Facet class</li><li>Must be serializable</li><li>Provide a facet key</li></ul>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/create-custom-facets/facet-1.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 6,
+      "content": "<p>DefaultFacetKey is your facet name. Sitecore store custom facet value against this FacetKey. Later I would tell you where you can varrify this.</p><p><b>Create a Model Class</b></p><p>It register your custom facet. This class should be static.<br/><img src=\"/images/create-custom-facets/facet-2.jpg\" /></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "<p><b>Deploy Model</b></p><p>To deploy custom facet, you need to serialize your model in JSON format and save the JSON content in a file. To serialize the model, its recommended to create a console base application which will generate the JSON file.</p><p><img src=\"/images/create-custom-facets/facet-3.jpg\" /></p><p>Run this console application. It will generate JSON file. Deploy this JSON file at the following places:</p><p><ul><li><span><</span>Instance_Name>.xconnect\\App_data\\Models</li><li><span><</span>Instance_Name>.xconnect\\App_data\\jobs\\continuous\\IndexWorker\\App_data\\Models</li></ul></p><p>Now deploy your Custom facet class project dll at the following places:</p><p><ul><li><span><</span>Instance_Name>.xconnect\\App_data\\jobs\\continuous\\AutomationEngine\\</li><li><span><</span>Instance_Name>.xconnect\\App_data\\jobs\\continuous\\IndexWorker\\</li><li><span><</span>Instance_Name>.xconnect\\bin</li><li><span><</span>Instance_Name>.sc\\bin</li></ul></p>",
+      "\\Models</li></ul>\",": null,
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "<p>If you are doing deployment on the scaled environment, you must have to deploy the custom model to all the core Sitecore instances:</p><ul><li>Content delivery</li><li>Content management</li><li>Processing</li><li>Reporting</li></ul><p>One last thing is left. Patch file to tell the Sitecore about your custom facet.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/create-custom-facets/facet-4.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 10,
+      "content": "<p>Placed this configuration patch file at: <span><</span>Instance_Name>.sc\\App_Config\\Sitecore\\XConnect.Client.Configuration. You are free to choose any file name.</p><p>Now your Custom facet is ready for use.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "How to use custom facet",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 12,
+      "content": "<p>Refer my earlier blog: <a href=\"/pages/xconnect-saving-user-profile-information-using-xconnect\">xConnect - Saving User Profile information using xConnect</a></p><p>Just need to use below code before client.Submit(); statement.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 13,
+      "content": "<p><ul><li class=\"comment\">//custom facet</li><li>CustomerFacets customerFacets = new CustomerFacets();</li><li>{</li><li class=\"tab\">CustomerId = \"10001\",</li><li class=\"tab\">AreaOfInterest = \"Playing Football\"</li><li>};</li><li>client.SetFacet(contact, customerFacets);</li></ul></p>",
+      "style": "code"
+    },
+    {
+      "sequence": 14,
+      "content": "How to verify custom facets values",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 15,
+      "content": "<p>Connect your database <b><span><</span>Instance_Name>_Xdb.Collection.Shard0</b> and execute the below query:</p><p>select * from [xdb_collection].ContactFacets order by LastModified desc</p><p>You will find record whose value of the column FacetKey is 'CustomerInterest'.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 16,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/create-custom-facets/facet-5.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 17,
+      "content": "<p>You can check your value in the JSON saved against the column FacetData.</p><p><br/>Thanks for your time. Happy learning & sharing.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

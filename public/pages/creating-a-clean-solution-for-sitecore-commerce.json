@@ -1,0 +1,109 @@
+{
+  "blogHeading": "CREATING A CLEAN SOLUTION FOR SITECORE COMMERCE",
+  "metaTitle": "CREATING A CLEAN SOLUTION FOR SITECORE COMMERCE",
+  "metaDescription": "Sitecore XC Create Solution",
+  "metaKeywords": "Sitecore XC, Sitecore Commerce, Sitecore Commerce Solution",
+  "metaImage": "/images/remove_sample_app_commerce_1.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "Sitecore Commerce solution is not similar to regular Sitecore solution. Even Sitecore Commerce installation package provide us a sample Sitecore Commerce solution as well. But it contains multiple sample project as well. Usually, people don't remove the existing sample project and start developing Sitecore Commerce component on top of that sample solution.",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 2,
+      "content": "Its always better to remove unused project/code from your solution. So today I would tell you how can you remove the existing sample application from the sample Sitecore Commerce application/solution. ",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "<b>Step-1</b>: Extract the zip file <b>Sitecore.Commerce.Engine.SDK.2.2.72.zip</b>. You can get this zipped file with the Sitecore Commerce 9.0.2 installation package. Move the extracted folder at your convenient folder (where ever you want to keep your Commerce solution in the file system).",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 4,
+      "content": "<b>Step-2</b>: Rename the solution file as per your project name. Open this solution and build. It should not have any build error.",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "<b>Step-3</b>: Add below dependencies to the Commerce Engine (Sitecore.Commerce.Engine) project.",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 6,
+      "content": "<ul><li>Sitecore.Commerce.Plugin.Coupons</li><li>Sitecore.Commerce.Plugin.Journaling</li><li>Sitecore.Commerce.Plugin.SQL</li><li>Sitecore.Commerce.Plugin.Tax</li></ul>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "Now we need to correct our configuration. Remove/comment sample files referenced from the configuration files:",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 8,
+      "content": "<b>Step-4</b>: ",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "<b>PlugIn.Habitat.CommerceAuthoring-1.0.0.json</b>: Remove reference of the <i><u>Plugin.Sample.Customers.CsMigration.ProfilesSqlPolicy</u></i> and <i><u>Plugin.Sample.Customers.CsMigration.ProfilePropertiesMappingPolicy</u></i> from this file ",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 10,
+      "applySize": true,
+      "refrence": "/images/remove_sample_app_commerce_1.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 11,
+      "content": "<b>Global.json</b>: Remove/comment reference of the <i><u>Plugin.Sample.Upgrade.MigrationPolicy</u></i> and <i><u>Plugin.Sample.Upgrade.MigrationSqlPolicy</u></i> from this file:",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 12,
+      "applySize": true,
+      "refrence": "/images/remove_sample_app_commerce_2.png",
+      "style": "Image"
+    },
+    {
+      "sequence": 13,
+      "content": "<b>Step-5</b>: Remove the below mentioned project from the commerce solution:",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "<ol><li>Plugin.Sample.AdventureWorks</li><li>Plugin.Sample.Customers.CsMigration</li><li>Plugin.Sample.Customers.Upgrade</li><li>Plugin.Sample.Habitat</li><li>Plugin.Sample.Upgrade</li></ol>",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 15,
+      "content": "<b>Step-6</b>: Clean and build the solution. It should build without error. ",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 16,
+      "content": "Now your commerce solution is ready for deployment. ",
+      "refrence": "",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 17,
+      "content": "<p>Thanks and good day ahead.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}

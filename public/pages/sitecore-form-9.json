@@ -1,0 +1,97 @@
+{
+  "blogHeading": "SITECORE FORM - 9",
+  "metaTitle": "SITECORE FORM - 9",
+  "metaDescription": "SITECORE FORM - 9",
+  "metaKeywords": "Sitecore Form",
+  "metaImage": "/images/sitecore-form-9/form9-1.png",
+  "contents": [
+    {
+      "sequence": 1,
+      "content": "BACKGROUND",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 2,
+      "content": "<p>Before Sitecore 9.0, Web Form Marketers (WFFM) was being used to full fill the web form requirement in Sitecore. But in Sitecore 9, we don't need Web Form Marketers any more. Sitecore providing Form out of the box with Sitecore 9.0 installation.</p><p>Sitecore tried to make Forms very simple. In my opinion, they tried hard to make our developers life simple specially in terms of designing forms. Its user interface is very much similar to Visual Studio IDE where you get toolbar. You just need to drag control from the toolbar and need to drop it on your form.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 3,
+      "content": "CREATING FORM",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 4,
+      "content": "<p>You can find the Forms application shortcut on the Sitecore Launchpad -> Marketing Applications section.</p><p><b>1. </b>Click on for Forms icon to open Forms dashboard.</p><p><b>2. </b>Click on the Create button, and select Blank form option.</br.><img src=\"/images/sitecore-form-9/form9-1.png\" /></p><p><b>3. </b>You can see that on right side it has toolbars (Form elements). You need to drag control(s) and drop it on the form area as per your requirements.</br.><img src=\"/images/sitecore-form-9/form9-2.png\" /></p><p><b>4. </b>Drag and drop a Text control on the form area.</br.><img src=\"/images/sitecore-form-9/form9-3.png\" /></p><p><b>5. </b>Once you select the Text control, right side you can see its properties and you can make changes as per your requirements.</br.><img src=\"/images/sitecore-form-9/form9-4.png\" /><br/>After making all changes you must have to click on Apply button to apply the changes made.</p><p><b>6. </b>Click on Save button to save the form. First time it will ask the form name.</p><p><b>7. </b>Now you can design your form as per your requirements.</p><p><b>8. </b>For this blog purpose I have created a form:</br.><img src=\"/images/sitecore-form-9/form9-5.png\" /><br/>Now our form is ready.<br/>You can see your form in the content tree as well under /sitecore/Forms</br><br/><img src=\"/images/sitecore-form-9/form9-6.png\" /></p><p>Now your form is ready. You need to show this form on the web page.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 5,
+      "content": "DISPLAY FORM ON THE PAGE",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 6,
+      "content": "<p>There are two high level steps to add form on the web page.</p><p><ul><li>Create MVC Layout</li><li>Insert form on web page.</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 7,
+      "content": "Create MVC Layout",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 8,
+      "content": "<p><b>1. </b>In the Content Editor, go to /sitecore/layout/Layouts, click on the MVC Layout button.</br><img src=\"/images/sitecore-form-9/form9-7.png\" /></p><p><b>2. </b>Follow the wizard to create MVC Layout. Named it \"MVC Layout\". You can give any name.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 9,
+      "content": "Insert form on web page",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 10,
+      "content": "<p><b>1. </b>Select item (page) where you want to add form.</p><p><b>2. </b>Click on the Presentation -> Details from the ribbon.</p><p><b>3. </b>Change its layout with the newly created layout \"MVC Layout\"<br/><img src=\"/images/sitecore-form-9/form9-8.png\" /></p><p><b>4. </b>Click on the Controls tab on the left and add Mvc Form rendering (/sitecore/layout/Renderings/System/Forms/Mvc Form).<br/><img src=\"/images/sitecore-form-9/form9-9.png\" /></p><p><b>5. </b>In the Data Source of your Mvc Form rendering, select your form created..<br/><img src=\"/images/sitecore-form-9/form9-10.png\" /></p><p><b>6. </b>Publish your page.</p><p><p>Now your page is ready to view. It would looks like:<br/><img src=\"/images/sitecore-form-9/form9-11.png\" /></p><p>Till now, we have not done anything to make the \"Submit\" button work. Depending on your requirement you must work on this to make \"Submit\" button functional.</p><p>In most of the case you want to access end user's input and redirect it to some other web page.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 11,
+      "content": "CUSTOM SUBMIT BUTTON ACTION",
+      "style": "BOLDHEADING"
+    },
+    {
+      "sequence": 12,
+      "content": "<p><b>Require assemblies:</b></p><ul><li>Sitecore.ExperienceForms.dll</li><li>Sitecore.ExperienceForms.Mvc.dll</li><li>Sitecore.Mvc.ExperienceEditor.dll</li><li>Sitecore.Kernel.dll</li><li>Sitecore.Mvc.dll</li></ul></p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 13,
+      "content": "<p>You must have to create a class that must inherit from <b>SubmitActionBase<span><</span>TParameterData></b> class.</p><br/>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 14,
+      "content": "",
+      "applySize": false,
+      "refrence": "/images/sitecore-form-9/code.jpg",
+      "style": "Image"
+    },
+    {
+      "sequence": 15,
+      "content": "<p>Build the code and deploy.</p><p>Now everything is ready except linking of the above newly created type with the Submit button click action. For this, we must have to create submit action item. Below are the steps:</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 16,
+      "content": "<p><b>1. </b>Go to /sitecore/system/Settings/Forms/Submit Actions <br/><img src=\"/images/sitecore-form-9/form9-12.png\" /></p><p><b>2. </b>Click on the Submit Action and provide the name \"Save Submit Data\".<br/><img src=\"/images/sitecore-form-9/form9-13.png\" /></p><p><b>3. </b>Open the newly created item fill the Model type and Error Message field. <br/><br/>Now we have to assign this Save Submit Data action to our Submit button created on the form. </p><p><b>4. </b>Open your form in the Forms designer window (Launchpad -> Form).</p><p><b>5. </b>Select the Submit button control and scroll down the right area until you see Submit actions section.</p><p><b>6. </b>Click on the + button and select your created Submit action<br/><img src=\"/images/sitecore-form-9/form9-14.png\" /></p><p><b>7. </b>Click on Apply and Save.</p><p><b>8. </b>Publish your items.</p><p>Now all set. Check your page and Submit button functionality.</p>",
+      "style": "NormalHtml"
+    },
+    {
+      "sequence": 17,
+      "content": "<p><br/>Thanks for your time. Happy learning & sharing.</p>",
+      "refrence": "",
+      "style": "NormalHtml"
+    }
+  ]
+}
